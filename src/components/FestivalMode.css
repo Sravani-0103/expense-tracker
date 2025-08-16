@@ -1,0 +1,724 @@
+.festival-mode {
+  max-width: none;
+  width: 100%;
+}
+
+.festival-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  color: #718096;
+}
+
+.festival-loading .loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #e2e8f0;
+  border-top: 3px solid #f093fb;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+.festival-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+  margin-top: 700px;
+}
+
+.festival-header .header-content h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0 0 8px 0;
+}
+
+.festival-header .header-content p {
+  color: #718096;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.add-festival-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.add-festival-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(240, 147, 251, 0.3);
+}
+
+.festival-tabs {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.festival-tab {
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  min-width: 200px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.festival-tab:hover {
+  border-color: #f093fb;
+  transform: translateY(-2px);
+}
+
+.festival-tab.active {
+  border-color: #f093fb;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+}
+
+.tab-content h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+}
+
+.tab-content p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin: 0 0 8px 0;
+}
+
+.tab-amount {
+  font-size: 0.85rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.delete-festival {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  color: currentColor;
+  border-radius: 4px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.festival-tab:hover .delete-festival {
+  opacity: 1;
+}
+
+.delete-festival:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.festival-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.budget-overview {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: start;
+}
+
+.budget-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.budget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.budget-header h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0;
+}
+
+.budget-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.budget-status.on-track {
+  background: #e6fffa;
+  color: #00695c;
+}
+
+.budget-status.warning {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.budget-status.over-budget {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.budget-progress {
+  margin-bottom: 20px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background: #f7fafc;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.3s;
+}
+
+.progress-fill.on-track {
+  background: linear-gradient(90deg, #20bf6b, #0fb9b1);
+}
+
+.progress-fill.warning {
+  background: linear-gradient(90deg, #f39c12, #f1c40f);
+}
+
+.progress-fill.over-budget {
+  background: linear-gradient(90deg, #e74c3c, #c0392b);
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #718096;
+}
+
+.budget-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: #f7fafc;
+  border-radius: 8px;
+}
+
+.stat-icon {
+  width: 24px;
+  height: 24px;
+  color: #f093fb;
+}
+
+.stat div p {
+  font-size: 0.8rem;
+  color: #718096;
+  margin: 0 0 4px 0;
+}
+
+.stat div span {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.stat div span.positive {
+  color: #20bf6b;
+}
+
+.stat div span.negative {
+  color: #eb4d4b;
+}
+
+.festival-description {
+  color: #4a5568;
+  font-style: italic;
+  margin: 0;
+  padding-top: 16px;
+  border-top: 1px solid #f7fafc;
+}
+
+.add-expense-btn {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  border: none;
+  padding: 16px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  height: fit-content;
+}
+
+.add-expense-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(240, 147, 251, 0.3);
+}
+
+.charts-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.chart-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.chart-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0 0 20px 0;
+}
+
+.pie-chart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.expenses-section {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.expenses-section h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0 0 20px 0;
+}
+
+.no-expenses {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: #718096;
+  text-align: center;
+}
+
+.no-expenses-icon {
+  width: 48px;
+  height: 48px;
+  color: #f093fb;
+  margin-bottom: 16px;
+}
+
+.no-expenses p {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+
+.add-first-expense {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.add-first-expense:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(240, 147, 251, 0.3);
+}
+
+.expenses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border: 2px solid #f7fafc;
+  border-radius: 10px;
+  transition: border-color 0.2s;
+}
+
+.expense-item:hover {
+  border-color: #f093fb;
+}
+
+.expense-info h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0 0 8px 0;
+}
+
+.expense-meta {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.expense-meta .category {
+  background: #f7fafc;
+  color: #4a5568;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.expense-meta .date {
+  color: #718096;
+  font-size: 0.85rem;
+}
+
+.expense-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.expense-actions .amount {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #eb4d4b;
+}
+
+.expense-actions .delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #a0aec0;
+  padding: 8px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.expense-actions .delete-btn:hover {
+  background: #fed7d7;
+  color: #c53030;
+}
+
+.no-festivals {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  color: #718096;
+  text-align: center;
+}
+
+.no-festivals-icon {
+  width: 64px;
+  height: 64px;
+  color: #f093fb;
+  margin-bottom: 20px;
+}
+
+.no-festivals h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0 0 12px 0;
+}
+
+.no-festivals p {
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+}
+
+.create-first-festival {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.create-first-festival:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(240, 147, 251, 0.3);
+}
+
+.form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.festival-form,
+.expense-form {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.form-header h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #a0aec0;
+  font-size: 24px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.close-btn:hover {
+  background: #f7fafc;
+  color: #4a5568;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #4a5568;
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 12px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #f093fb;
+  box-shadow: 0 0 0 3px rgba(240, 147, 251, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.cancel-btn,
+.save-btn {
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.cancel-btn {
+  background: #f7fafc;
+  color: #4a5568;
+  border: 2px solid #e2e8f0;
+}
+
+.cancel-btn:hover {
+  background: #edf2f7;
+}
+
+.save-btn {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+}
+
+.save-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(240, 147, 251, 0.3);
+}
+
+@media (max-width: 768px) {
+  .festival-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .budget-overview {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .budget-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .charts-section {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .expense-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .expense-actions {
+    align-self: flex-end;
+  }
+
+  .festival-tabs {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .festival-tab {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .festival-form,
+  .expense-form {
+    padding: 20px 16px;
+  }
+
+  .budget-card {
+    padding: 20px;
+  }
+
+  .chart-card,
+  .expenses-section {
+    padding: 20px;
+  }
+
+  .festival-header .header-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .no-festivals h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
