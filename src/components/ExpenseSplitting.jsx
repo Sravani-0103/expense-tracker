@@ -476,7 +476,6 @@ const ExpenseSplitting = () => {
                       </div>
                       <div className="member-info">
                         <h4>{member.name}</h4>
-                        <p>{member.email}</p>
                       </div>
                     </div>
                   ))}

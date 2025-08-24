@@ -75,7 +75,7 @@
 .splitting-content {
   display: grid;
   grid-template-columns: 300px 1fr;
-  gap: 2rem;
+  gap: 10px;
   height: calc(100vh - 200px);
 }
 

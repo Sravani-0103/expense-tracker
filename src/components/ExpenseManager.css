@@ -1,6 +1,7 @@
 .expense-manager {
   max-width: none;
   width: 100%;
+  margin-top: 350px;
 }
 
 .expense-manager-loading {
